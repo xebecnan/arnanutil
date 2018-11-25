@@ -19,3 +19,6 @@ def prepare_dir_for(filename):
     dirname = os.path.dirname(filename)
     prepare_dir(dirname)
 
+def get_file_size(path):
+    return os.stat(path).st_size
+
