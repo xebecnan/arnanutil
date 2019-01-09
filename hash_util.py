@@ -3,15 +3,18 @@
 import os
 import hashlib
 
-def get_file_md5(path):
-    m = hashlib.md5()
+# hash_method = hashlib.md5
+hash_method = hashlib.sha256
+
+def get_file_hash(path):
+    m = hash_method()
     with open(path, 'rb') as f:
         for chunk in iter(lambda: f.read(4096), b''):
             m.update(chunk)
     return m.hexdigest()
 
 def get_hash(v):
-    m = hashlib.md5()
+    m = hash_method()
     m.update(v)
     return m.hexdigest()
 
